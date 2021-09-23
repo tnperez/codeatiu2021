@@ -15,9 +15,25 @@ def pal(s):
             return False
     return True
 
+def pal1(s):
+    l = len(s) #elle -> 4
+    l = l//2 #-> 2
+    firstHalf = ""
+    secHalf = ""
+
+    for i in range(l): #0,1
+        firstHalf += s[i]
+    if(len(s)%2 == 1):
+        for j in range(len(s) - 1, l , -1): #(3,2,-1) #- (1 - len(s)%2)
+            secHalf += s[j]
+    else:
+        for j in range(len(s) - 1, l - 1 , -1): #(3,2,-1) #- (1 - len(s)%2)
+            secHalf += s[j]
+    
+    return firstHalf == secHalf
 
 i = input("Enter a word: ")
-print("Your word came back as ", pal(i), " for the check")
+print("Your word came back as ", pal1(i), " for the check")
 while(i != "QUIT"):
     i = input("Enter a word: ")
-    print("Your word came back as ", pal(i), " for the check")
+    print("Your word came back as ", pal1(i), " for the check")
